@@ -24,5 +24,10 @@ export class TaskService {
   toggleReminder(task:Task): Observable<Task>{
     const url = `${this.apiUrl}/${task.id}`;
     task.reminder = !task.reminder;
-    return this.httpClient.put<Task>(url, task);  }
+    return this.httpClient.put<Task>(url, task); 
+   }
+
+   addTask(task: Task): Observable<Task>{
+    return this.httpClient.post<Task>(this.apiUrl, task); 
+   }
 }
